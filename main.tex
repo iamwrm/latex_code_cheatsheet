@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{minted}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[margin=2.8cm]{geometry}
+
+
+\begin{document}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\doublespacing
+
+\begin{center}
+    \LARGE
+    How to use the code environment in latex \\ 
+    \large Author: Wang, Ren iamwrm@gmail.com 
+\end{center}
+
+\inputminted[bgcolor=bg]{python}{./ab.tex}
+
+\tableofcontents
+
+\newpage
+
+\section{Use minted package}
+
+The source code can either be entered into latex source code or directly from a file.
+
+\subsection{ For code in the latex file }
+
+\begin{minted}[bgcolor=bg,breaklines=true]{python}
+# From ./main.tex
+import numpy as np
+
+def incmatrix(genl1,genl2):
+    m = 121312313123123123123+ 12312312 + 31231231231231+2312312313123123123
+    n = 1+4+5+31+4+5+31+4+5+31+4+5+3131+4+5+31+31+4+5+31+31+4+5+31+31+4+5+31++4
+    M = None #to become the incidence matrix
+    VT = np.zeros((n*m,1), int)  #dummy variable
+\end{minted}
+
+As you can see here, although we can add the option \mintinline{latex}{breaklines} to let the large code line breaks automatically, this function can only break the line for one time.
+
+\subsection{ For code in the latex file in an external file. }
+
+\inputminted[bgcolor=bg]{python}{./ff.py}
+As you can see are, the page breaks automatically if the code is too long.
+
+\subsection{ For an one-line code:}
+
+\mint[bgcolor=bg]{html}|<h2>Something <b>here</b></h2>|
+
+\subsection{ For  inline code:}
+
+Hey buddy, this is a \mintinline{latex}{\LaTeX} logo. 
+
+\section{Reference}
+
+\url{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted}
+
+\url{./minted.pdf}
+
+\section{Code of this tex}
+To make this pdf self-esteem, I want to include the source code of this tex.
+
+\inputminted[bgcolor=bg,breaklines]{latex}{./main.tex}
+
+\end{document}
